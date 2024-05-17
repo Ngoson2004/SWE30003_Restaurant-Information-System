@@ -12,5 +12,24 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<Menu> Menu { get; set; }
+    public DbSet<Order> Order { get; set; }
+    public DbSet<Item> Item { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Order>()
+            .Property(o => o.Status)
+            .HasConversion<string>();
+
+        modelBuilder.Entity<Item>()
+            .HasOne(oi => oi.Menu)
+            .WithMany()
+            .HasForeignKey(oi => oi.ItemName)
+            .HasPrincipalKey(m => m.ItemName);
+
+        modelBuilder.Entity<Item>()
+            .Property(o => o.Note)
+            .IsRequired(false);
+    }
 }
 

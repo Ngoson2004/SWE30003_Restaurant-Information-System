@@ -20,3 +20,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.bg-image {
+  background-image: url('../media/home.jpeg');
+  background-size: cover; /* Make sure the background covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background from repeating */
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  width: 100%; /* Set the width to 100% */
+}
+

@@ -1,10 +1,6 @@
 /* _content/Assignment_3/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 a.navbar-brand[b-f99yd15ixm] {
   white-space: normal;
   text-align: center;

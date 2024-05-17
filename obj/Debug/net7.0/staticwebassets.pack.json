@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/ngoson/Desktop/Assignment3_SWE30003/SWE30003_Restaurant-Information-System/Assignment_3/wwwroot/media/home.jpeg",
+      "PackagePath": "staticwebassets/media/home.jpeg"
+    },
+    {
       "Id": "obj/Debug/net7.0/staticwebassets/msbuild.Assignment_3.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
