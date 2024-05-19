@@ -1,4 +1,4 @@
-@model List<Order>
+@model List<Assignment_3.Models.Order>
 
 @{
     ViewData["Title"] = "Kitchen Page";
@@ -7,5 +7,43 @@
 <h1 class="ms-4">Order List</h1>
 
 <div class="container mt-4">
-    
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Status</th>
+                <th>Items</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderID</td>
+                    <td>
+                        <form asp-action="UpdateOrderStatus" method="post">
+                            <input type="hidden" name="orderId" value="@order.OrderID" />
+                            <select name="newStatus" asp-for="@order.Status" class="form-control">
+                                <option value="Pending">Pending</option>
+                                <option value="InProgress">In Progress</option>
+                                <option value="Done">Done</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (var item in order.Items) {
+                            <li>
+                                <strong>@item.ItemName</strong> - Quantity: @item.Quantity<br />
+                                Note: @item.Note
+                            </li>                                
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

@@ -22,12 +22,6 @@ public class ApplicationDbContext : DbContext
             .HasConversion<string>();
 
         modelBuilder.Entity<Item>()
-            .HasOne(oi => oi.Menu)
-            .WithMany()
-            .HasForeignKey(oi => oi.ItemName)
-            .HasPrincipalKey(m => m.ItemName);
-
-        modelBuilder.Entity<Item>()
             .Property(o => o.Note)
             .IsRequired(false);
     }

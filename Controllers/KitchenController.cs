@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,10 @@ public class KitchenController : Controller
     public IActionResult Index()
     {
         var orders = _db.Order
-                             .Include(o => o.Items)
-                             .ThenInclude(oi => oi.Menu)
-                             .ToList();
+                        .Include(o => o.Items)
+                        .ToList();
+                        // .ThenInclude(oi => oi.Menu)
+                        // .ToList();
         return View(orders);
     }
 }

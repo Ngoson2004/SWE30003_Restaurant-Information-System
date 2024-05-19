@@ -7,56 +7,48 @@
 <h1 class="ms-4">What do you want to eat today?</h1>
 
 <div class="container mt-4">
-    <div class="row">
-        <form asp-action="Create" method="post">
-            <div class="col">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Select</th>
-                            <th>Item Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Note</th>
-                        </tr>
-                    </thead>
+    <form asp-action="Create" method="post">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
 
-                    <tbody>
-                        @{
-                            int i=0;
-                        }
-                        @foreach (var menuItem in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <input type="hidden" name="items[@i].ItemName" value="@menuItem.ItemName" />
-                                    <input type="checkbox" name="items[@i].IsSelected" />
-                                </td>
-                                <td>
-                                    @menuItem.ItemName
-                                    <input type="hidden" name="items[@i].ItemName" value="@menuItem.ItemName" />
-                                </td>
+            <tbody>
+                @{
+                    int i = 0;
+                }
+                @foreach (var menuItem in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="hidden" name="items[@i].ItemName" value="@menuItem.ItemName" />
+                            <input type="checkbox" name="items[@i].IsSelected" value=True />
+                        </td>
+                        <td>
+                            @menuItem.ItemName
+                        </td>
 
-                                <td>
-                                    @menuItem.ItemPrice
-                                </td>
-                                <td style="width: 10%">
-                                    <input type="number" name="items[@i].Quantity" value="0" min="0"
-                                        class="form-control" />
-                                </td>
-                                <td>
-                                    <textarea cols="10" name="items[@i].Note" class="form-control"></textarea>
-                                </td>
-                            </tr>
-                            i++;
-                        }
-                    </tbody>
-                </table>
-            </div>
+                        <td>
+                            $@menuItem.ItemPrice
+                        </td>
+                        <td style="width: 10%">
+                            <input type="number" name="items[@i].Quantity" value="0" min="0" class="form-control" />
+                        </td>
+                        <td>
+                            <input type="items[@i].Note" name="items[@i].Note" class="form-control"/>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
 
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Confirm Order</button>
-            </div>
-        </form>
-    </div>
+        <button type="submit" onclick="alert('Order submitted successfully')" class="btn btn-primary">Confirm Order</button>
+    </form>
 </div>
