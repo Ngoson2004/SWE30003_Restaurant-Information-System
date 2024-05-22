@@ -39,5 +39,40 @@ public class ReservationController : Controller
         }
         return View(obj);
     }
+
+    //get
+    public IActionResult Delete(int? id)
+    {
+        if (id == null || id== 0)
+        {
+            return NotFound();
+        }
+
+        var ReservationFromDB = _db.Reservations.Find(id);
+
+        if(ReservationFromDB == null)
+        {
+            return NotFound();
+        }
+
+        return View(ReservationFromDB);
+    }
+
+    //post
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Delete(int id) 
+    {
+        var obj = _db.Reservations.Find(id);
+        if(obj == null) 
+        {
+            return NotFound();
+        }
+        _db.Reservations.Remove(obj);
+        _db.SaveChanges();
+        TempData["remove"] = "Reservation sucessfully removed.";
+        return RedirectToAction("Index");
+    }
 }
 
