@@ -34,7 +34,7 @@ public class ReservationController : Controller
         {
             _db.Reservations.Add(obj);
             _db.SaveChanges();
-            TempData["Success"] = "Reservation sucessfully placed.";
+            TempData["success"] = "Reservation sucessfully placed.";
             return RedirectToAction("Index");
         }
         return View(obj);
