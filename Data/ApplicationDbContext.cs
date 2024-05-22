@@ -14,6 +14,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Menu> Menu { get; set; }
     public DbSet<Order> Order { get; set; }
     public DbSet<Item> Item { get; set; }
+    public DbSet<Reserv> Reservations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

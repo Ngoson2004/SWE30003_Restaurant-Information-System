@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Assignment_3.Migrations
+namespace Assignment3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -79,6 +79,24 @@ namespace Assignment_3.Migrations
                     b.HasKey("OrderID");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("Assignment_3.Models.Reserv", b =>
+                {
+                    b.Property<int>("ReservId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("ReservId");
+
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("Assignment_3.Models.Item", b =>
