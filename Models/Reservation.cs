@@ -10,7 +10,7 @@ public class Reserv
     [DisplayName("Customer Name")]
     public string CustomerName {get; set;}
     [Required]
-    [FutureDate]
+    [DateRange]
     public DateTime Time { get; set; }
 
 }

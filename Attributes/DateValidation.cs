@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Assignment_3.Attributes
 {
-    public class FutureDateAttribute : ValidationAttribute
+    public class DateRangeAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
