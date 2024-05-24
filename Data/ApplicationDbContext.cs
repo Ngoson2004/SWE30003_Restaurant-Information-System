@@ -15,12 +15,19 @@ public class ApplicationDbContext : DbContext
     public DbSet<Order> Order { get; set; }
     public DbSet<Item> Item { get; set; }
     public DbSet<Reserv> Reservations { get; set; }
+    //public DbSet<Statistics> Stats { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Order>()
             .Property(o => o.Status)
             .HasConversion<string>();
+
+        modelBuilder.Entity<Order>()
+            .HasMany(o => o.Items)
+            .WithOne(i => i.Order)
+            .HasForeignKey(i => i.OrderID)
+            .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Item>()
             .Property(o => o.Note)
