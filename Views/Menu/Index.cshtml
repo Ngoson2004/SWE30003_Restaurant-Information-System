@@ -7,7 +7,7 @@
 <h1 class="ms-4">What do you want to eat today?</h1>
 
 <div class="container mt-4">
-    <form asp-action="Create" method="post">
+    <form asp-action="Create" method="post" onsubmit="return validateForm()">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -38,10 +38,10 @@
                             $@menuItem.ItemPrice
                         </td>
                         <td style="width: 10%">
-                            <input type="number" name="items[@i].Quantity" value="0" min="0" class="form-control" />
+                            <input type="number" name="items[@i].Quantity" value="1" min="1" class="form-control" />
                         </td>
                         <td>
-                            <input type="items[@i].Note" name="items[@i].Note" class="form-control"/>
+                            <input type="items[@i].Note" name="items[@i].Note" class="form-control" />
                         </td>
                     </tr>
                     i++;
@@ -49,6 +49,18 @@
             </tbody>
         </table>
 
-        <button type="submit" onclick="alert('Order submitted successfully')" class="btn btn-primary">Confirm Order</button>
+        <button type="submit" class="btn btn-primary">Confirm Order</button>
     </form>
 </div>
+
+<script>
+    function validateForm() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var oneChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        if (!oneChecked) {
+            alert('Please select at least one item.');
+            return false;
+        }
+        return true;
+    }
+</script>

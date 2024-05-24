@@ -54,6 +54,13 @@ public class MenuController : Controller
         // }
         // Console.WriteLine(ModelState.IsValid);
 
+        if (!selectedItems.Any()) 
+        {
+                ModelState.AddModelError(string.Empty, "Please select at least one item.");
+                var Items = _db.Menu.ToList();
+                return View("Index", Items);
+        }
+
         if (selectedItems.Any())
         {
             var order = new Order
