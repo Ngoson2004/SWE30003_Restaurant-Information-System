@@ -1,0 +1,27 @@
+@model Reserv
+
+<form method="post" asp-action="Delete">
+    <input asp-for="ReservId" hidden />
+    <div class="container">
+        <div class="row pb-2">
+            <h2>Delete Reservation</h2>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="CustomerName"></label>
+            <input asp-for="CustomerName" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Time"></label>
+            <input asp-for="Time" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 150px">Confirm</button>
+        <a asp-controller="Reservation" asp-action="Index" class="btn btn-secondary" style="width: 150px">Back</a>
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+
+    }
+}

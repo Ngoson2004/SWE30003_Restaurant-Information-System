@@ -7,8 +7,8 @@ using Assignment_3.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var password = builder.Configuration["ConnectionStrings:DefaultConnection:password"];
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") + "password=" + password ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))); // Changed to UseMySql
