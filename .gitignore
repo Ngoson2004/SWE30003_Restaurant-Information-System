@@ -24,3 +24,5 @@ TestResults.xml
 */.DS_Store
 .DS_Store
 Areas/Identity/.DS_Store
+bin
+obj

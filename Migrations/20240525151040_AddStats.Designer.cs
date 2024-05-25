@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240525133858_AddStats")]
+    [Migration("20240525151040_AddStats")]
     partial class AddStats
     {
         /// <inheritdoc />
@@ -100,6 +100,24 @@ namespace Assignment3.Migrations
                     b.HasKey("ReservId");
 
                     b.ToTable("Reservations");
+                });
+
+            modelBuilder.Entity("Assignment_3.Models.Statistics", b =>
+                {
+                    b.Property<int>("OrderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Feedback")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("OrderID");
+
+                    b.ToTable("Stats");
                 });
 
             modelBuilder.Entity("Assignment_3.Models.Item", b =>

@@ -15,7 +15,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Order> Order { get; set; }
     public DbSet<Item> Item { get; set; }
     public DbSet<Reserv> Reservations { get; set; }
-    //public DbSet<Statistics> Stats { get; set; }
+    public DbSet<Statistics> Stats { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
