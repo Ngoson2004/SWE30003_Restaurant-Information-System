@@ -7,6 +7,7 @@
 <h1 class="ms-4">What do you want to eat today?</h1>
 
 <div class="container mt-4">
+    <div asp-validation-summary="All" class="text-danger"></div>
     <form asp-action="Create" method="post" onsubmit="return validateForm()">
         <table class="table table-bordered table-striped">
             <thead>
@@ -52,15 +53,3 @@
         <button type="submit" class="btn btn-primary">Confirm Order</button>
     </form>
 </div>
-
-<script>
-    function validateForm() {
-        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        var oneChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-        if (!oneChecked) {
-            alert('Please select at least one item.');
-            return false;
-        }
-        return true;
-    }
-</script>

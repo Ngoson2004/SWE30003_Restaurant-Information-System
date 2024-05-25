@@ -34,7 +34,7 @@ public class KitchenController : Controller
         {
             order.Status = newStatus;
             _db.SaveChanges();
-            TempData["success"] = "Status sucessfully updated.";
+            TempData["update"] = "Status sucessfully updated.";
         }
 
         return RedirectToAction("Index");
@@ -46,10 +46,18 @@ public class KitchenController : Controller
         var order = _db.Order.Find(orderID);
         if (order != null)
         {
-            //Remove all related items
-            // _db.Item.RemoveRange(order.Items);
-            _db.Order.Remove(order);
-            _db.SaveChanges();
+            if (order.Status != OrderStatus.Done)
+            {
+                ModelState.AddModelError("", "Only orders with status 'Done' can be archived.");
+                var orders = _db.Order.Include(o => o.Items).ToList();
+                return View("Index", orders);
+            }
+            else
+            {
+                _db.Order.Remove(order);
+                _db.SaveChanges();
+                TempData["archieve"] = "Order sucessfully archieved.";
+            }
         }
 
         return RedirectToAction("Index");
