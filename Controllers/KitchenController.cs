@@ -48,7 +48,7 @@ public class KitchenController : Controller
         {
             if (order.Status != OrderStatus.Done)
             {
-                ModelState.AddModelError("", "Only orders with status 'Done' can be archived.");
+                ModelState.AddModelError("", "Only orders with status 'Done' can be achieved.");
                 var orders = _db.Order.Include(o => o.Items).ToList();
                 return View("Index", orders);
             }
@@ -56,7 +56,7 @@ public class KitchenController : Controller
             {
                 _db.Order.Remove(order);
                 _db.SaveChanges();
-                TempData["archieve"] = "Order sucessfully archieved.";
+                TempData["archieve"] = "Order sucessfully achieved.";
             }
         }
 
