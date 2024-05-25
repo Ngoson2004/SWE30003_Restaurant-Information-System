@@ -99,6 +99,24 @@ namespace Assignment3.Migrations
                     b.ToTable("Reservations");
                 });
 
+            modelBuilder.Entity("Assignment_3.Models.Statistics", b =>
+                {
+                    b.Property<int>("OrderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Feedback")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("OrderID");
+
+                    b.ToTable("Stats");
+                });
+
             modelBuilder.Entity("Assignment_3.Models.Item", b =>
                 {
                     b.HasOne("Assignment_3.Models.Order", "Order")
