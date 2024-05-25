@@ -54,46 +54,39 @@ public class MenuController : Controller
         // }
         // Console.WriteLine(ModelState.IsValid);
 
-        if (!selectedItems.Any()) 
+        if (!selectedItems.Any())
         {
-                ModelState.AddModelError(string.Empty, "Please select at least one item.");
-                var Items = _db.Menu.ToList();
-                return View("Index", Items);
+            ModelState.AddModelError(string.Empty, "Please select at least one item.");
+            var Items = _db.Menu.ToList();
+            return View("Index", Items);
         }
 
-        if (selectedItems.Any())
+        var order = new Order
         {
-            var order = new Order
+            Items = selectedItems.Select(i => new Item
             {
-                Items = selectedItems.Select(i => new Item
-                {
-                    ItemName = i.ItemName,
-                    Quantity = i.Quantity,
-                    Note = i.Note
-                }).ToList()
-            };
+                ItemName = i.ItemName,
+                Quantity = i.Quantity,
+                Note = i.Note
+            }).ToList()
+        };
 
-            _db.Order.Add(order);
-            _db.SaveChanges();
+        _db.Order.Add(order);
+        _db.SaveChanges();
 
-            return RedirectToAction("Feedback");
-            // foreach (var item in items.Where(oi => oi.Quantity > 0))
-            // {
-            //     var menuItem = _db.Menu.FirstOrDefault(m => m.ItemName == item.ItemName);
-            //     if (menuItem != null)
-            //     {
-            //         item.ItemName = menuItem.ItemName; // Ensure ItemName is set correctly
-            //         order.Items.Add(item);
-            //     }
-            // }
-            // _db.Order.Add(order);
-            // _db.SaveChanges();
-            // }
-        }
-
-        var menuItems = _db.Menu.ToList();
-        return View("Index", menuItems);
-
+        return RedirectToAction("Feedback");
+        // foreach (var item in items.Where(oi => oi.Quantity > 0))
+        // {
+        //     var menuItem = _db.Menu.FirstOrDefault(m => m.ItemName == item.ItemName);
+        //     if (menuItem != null)
+        //     {
+        //         item.ItemName = menuItem.ItemName; // Ensure ItemName is set correctly
+        //         order.Items.Add(item);
+        //     }
+        // }
+        // _db.Order.Add(order);
+        // _db.SaveChanges();
+        // }
     }
 
     public IActionResult Feedback()
