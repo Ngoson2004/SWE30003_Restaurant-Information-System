@@ -61,6 +61,9 @@ public class MenuController : Controller
             return View("Index", Items);
         }
 
+  
+        var totalPrice = selectedItems.Sum(i => i.Quantity * _db.Menu.First(m => m.ItemName == i.ItemName).ItemPrice);
+
         var order = new Order
         {
             Items = selectedItems.Select(i => new Item
@@ -68,13 +71,20 @@ public class MenuController : Controller
                 ItemName = i.ItemName,
                 Quantity = i.Quantity,
                 Note = i.Note
-            }).ToList()
+            }).ToList(),
+            
         };
 
         _db.Order.Add(order);
         _db.SaveChanges();
 
-        return RedirectToAction("Feedback");
+        var statistics = new Statistics
+        {
+            TotalPrice = totalPrice,
+            OrderID = order.OrderID
+        };
+
+        return RedirectToAction("Feedback", statistics);
         // foreach (var item in items.Where(oi => oi.Quantity > 0))
         // {
         //     var menuItem = _db.Menu.FirstOrDefault(m => m.ItemName == item.ItemName);
@@ -89,10 +99,29 @@ public class MenuController : Controller
         // }
     }
 
-    public IActionResult Feedback()
+    public IActionResult Feedback(int orderId, float totalPrice)
     {
-        return View();
+        var statistics = new Statistics
+        {
+            OrderID = orderId,
+            TotalPrice = totalPrice
+        };
+        return View(statistics);
     }
+
+    [HttpPost]
+    public IActionResult SubmitFeedback(Statistics feedback)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View("Feedback", feedback);
+        }
+        _db.Stats.Add(feedback);
+        _db.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
