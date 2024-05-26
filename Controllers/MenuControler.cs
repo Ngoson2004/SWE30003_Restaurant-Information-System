@@ -11,7 +11,6 @@ public class MenuController : Controller
     public MenuController(ApplicationDbContext db)
     {
         _db = db;
-
     }
 
     //GET method - display the menu
