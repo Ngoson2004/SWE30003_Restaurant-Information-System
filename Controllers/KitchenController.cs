@@ -26,6 +26,7 @@ public class KitchenController : Controller
         return View(orders);
     }
 
+    //PUT method - Update the Order status
     [HttpPost]
     public IActionResult UpdateOrderStatus(int orderID, OrderStatus newStatus)
     {
@@ -40,6 +41,7 @@ public class KitchenController : Controller
         return RedirectToAction("Index");
     }
 
+    //DELETE method - delete completed orders
     [HttpPost]
     public IActionResult Archieve(int orderID)
     {

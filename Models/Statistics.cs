@@ -7,6 +7,6 @@ public class Statistics
     public int OrderID { get; set; }
     //public Order? Order { get; set; }
     public float TotalPrice { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Feedback is required.")]
     public string Feedback { get; set; }
 }
