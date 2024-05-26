@@ -3456,24 +3456,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/ngoson/.nuget/packages/": {}
+    "C:\\Users\\henry\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ngoson/Desktop/Assignment3_SWE30003/SWE30003_Restaurant-Information-System/Assignment_3/Assignment_3.csproj",
+      "projectUniqueName": "C:\\Users\\henry\\OneDrive\\Desktop\\asm3\\SWE30003_Restaurant-Information-System\\Assignment_3.csproj",
       "projectName": "Assignment_3",
-      "projectPath": "/Users/ngoson/Desktop/Assignment3_SWE30003/SWE30003_Restaurant-Information-System/Assignment_3/Assignment_3.csproj",
-      "packagesPath": "/Users/ngoson/.nuget/packages/",
-      "outputPath": "/Users/ngoson/Desktop/Assignment3_SWE30003/SWE30003_Restaurant-Information-System/Assignment_3/obj/",
+      "projectPath": "C:\\Users\\henry\\OneDrive\\Desktop\\asm3\\SWE30003_Restaurant-Information-System\\Assignment_3.csproj",
+      "packagesPath": "C:\\Users\\henry\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\henry\\OneDrive\\Desktop\\asm3\\SWE30003_Restaurant-Information-System\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/ngoson/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\henry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3553,7 +3561,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.204/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
       }
     }
   }
