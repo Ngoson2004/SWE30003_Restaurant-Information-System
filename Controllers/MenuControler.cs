@@ -114,7 +114,15 @@ public class MenuController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return View("Feedback", feedback);
+            foreach (var state in ModelState)
+            {
+                var key = state.Key;
+                var errors = state.Value.Errors;
+                foreach (var error in errors)
+                {
+                    Console.WriteLine($"Error in {key}: {error.ErrorMessage}");
+                }
+            }
         }
         _db.Stats.Add(feedback);
         _db.SaveChanges();
