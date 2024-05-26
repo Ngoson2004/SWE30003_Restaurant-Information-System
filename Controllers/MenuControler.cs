@@ -60,6 +60,9 @@ public class MenuController : Controller
             return View("Index", Items);
         }
 
+        //calculate the total price of the last order
+        var totalPrice = selectedItems.Sum(i => i.Quantity * _db.Menu.First(m => m.ItemName == i.ItemName).ItemPrice);
+
         var order = new Order
         {
             Items = selectedItems.Select(i => new Item
@@ -67,31 +70,55 @@ public class MenuController : Controller
                 ItemName = i.ItemName,
                 Quantity = i.Quantity,
                 Note = i.Note
-            }).ToList()
+            }).ToList(),
+            
         };
 
         _db.Order.Add(order);
         _db.SaveChanges();
 
-        return RedirectToAction("Feedback");
-        // foreach (var item in items.Where(oi => oi.Quantity > 0))
-        // {
-        //     var menuItem = _db.Menu.FirstOrDefault(m => m.ItemName == item.ItemName);
-        //     if (menuItem != null)
-        //     {
-        //         item.ItemName = menuItem.ItemName; // Ensure ItemName is set correctly
-        //         order.Items.Add(item);
-        //     }
-        // }
-        // _db.Order.Add(order);
-        // _db.SaveChanges();
-        // }
+        var statistics = new Statistics
+        {
+            TotalPrice = totalPrice,
+            OrderID = order.OrderID
+        };  //Update the statistics with total price
+
+        return RedirectToAction("Feedback", statistics);
     }
 
-    public IActionResult Feedback()
+    //Give Feedback functionality
+    public IActionResult Feedback(int orderId, float totalPrice)
     {
-        return View();
+        var statistics = new Statistics
+        {
+            OrderID = orderId,
+            TotalPrice = totalPrice
+        };
+        return View(statistics);
     }
+
+    [HttpPost]
+    public IActionResult SubmitFeedback(Statistics model)
+    {
+        if (!ModelState.IsValid)
+        {
+            foreach (var state in ModelState)
+            {
+                var key = state.Key;
+                var errors = state.Value.Errors;
+                foreach (var error in errors)
+                {
+                    Console.WriteLine($"Error in {key}: {error.ErrorMessage}");
+                }
+            }
+            return View("Feedback", model);
+        }
+        _db.Stats.Add(model);   //Add new Feedback to the statistics
+        _db.SaveChanges();
+
+        return RedirectToAction("Index", "Home");   //After sending feedback, redirect to Home page
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

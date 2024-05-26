@@ -22,5 +22,5 @@ rad.json
 TestResults.xml
 #Cache
 .DS_Store
-*/.DS_Store
-Areas/Identity/.DS_Store
+bin/
+obj/
