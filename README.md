@@ -2,7 +2,7 @@
 This website is built with ASP.NET Core n7.0. To see the demonstration, please watch this [video](https://www.youtube.com/watch?v=bMnRvEmOjUs)
 
 ## 1. Home page
-![home](https://drive.google.com/file/d/1ok_iTkZSI0OvRHaP8ZAyjOIsWwkmkXTr/view?usp=share_link)
+![home](https://drive.google.com/uc?export=view&id=1ok_iTkZSI0OvRHaP8ZAyjOIsWwkmkXTr)
 
 ## 2. Menu page
 ![menu](https://drive.google.com/file/d/1TortiwOgJ3s1APOHZaX6SfYtlG7SR313/view?usp=share_link)
