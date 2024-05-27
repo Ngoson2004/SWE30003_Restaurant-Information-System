@@ -5,15 +5,15 @@ This website is built with ASP.NET Core n7.0. To see the demonstration, please w
 ![home](https://drive.google.com/uc?export=view&id=1ok_iTkZSI0OvRHaP8ZAyjOIsWwkmkXTr)
 
 ## 2. Menu page
-![menu](https://drive.google.com/file/d/1TortiwOgJ3s1APOHZaX6SfYtlG7SR313/view?usp=share_link)
+![menu](https://drive.google.com/uc?export=view&id=1TortiwOgJ3s1APOHZaX6SfYtlG7SR313)
 
 ## 3. Feedback page
-![feedback](https://drive.google.com/file/d/19CfyEl8FIHob8gshAlcCNG7YtDz3FXZi/view?usp=share_link)
+![feedback](https://drive.google.com/uc?export=view&id=19CfyEl8FIHob8gshAlcCNG7YtDz3FXZi)
 
 ## 4. Kitchen page
-![kitchen](https://drive.google.com/file/d/1jysqk55kjiaLKwPXuEd9wYZyu1_EA9rP/view?usp=share_link)
+![kitchen](https://drive.google.com/uc?export=view&id=1jysqk55kjiaLKwPXuEd9wYZyu1_EA9rP)
 
 ## 5. Reservation page
-![reserv](https://drive.google.com/file/d/1d7_yVzqBwyHiuvi3QITSWIVDilKCXJGi/view?usp=share_link)
+![reserv](https://drive.google.com/uc?export=view&id=1d7_yVzqBwyHiuvi3QITSWIVDilKCXJGi)
 
 ## 6. How to run this system on your machine
