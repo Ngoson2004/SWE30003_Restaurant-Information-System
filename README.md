@@ -1,5 +1,5 @@
 # SWE30003_Assignment3_Restaurant Information System with ASP.NET Core MVC</h1>
-This website is built with ASP.NET Core n7.0. To see the demonstration, please watch this [video](https://www.youtube.com/watch?v=bMnRvEmOjUs)
+This website is built with ASP.NET Core v7.0. To see the demonstration, please watch this [video](https://www.youtube.com/watch?v=bMnRvEmOjUs)
 
 ## 1. Home page
 ![home](https://drive.google.com/uc?export=view&id=1ok_iTkZSI0OvRHaP8ZAyjOIsWwkmkXTr)
