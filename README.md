@@ -1,4 +1,4 @@
-# SWE30003_Assignment3_Restaurant Information System with ASP.NET Core MVC</h1>
+ # SWE30003_Assignment3_Restaurant Information System with ASP.NET Core MVC</h1>
 This website is built with ASP.NET Core v7.0. To see the demonstration, please watch this [video](https://www.youtube.com/watch?v=bMnRvEmOjUs)
 
 ## 1. Home page
@@ -17,6 +17,7 @@ This website is built with ASP.NET Core v7.0. To see the demonstration, please w
 ![reserv](https://drive.google.com/uc?export=view&id=1d7_yVzqBwyHiuvi3QITSWIVDilKCXJGi)
 
 ## 6. How to run this system on your machine
+- Clone the repo `git clone https://github.com/Ngoson2004/SWE30003_Restaurant-Information-System/`
 - Make sure you have MySQL Workbench and Dotnet SDK on your machine. Otherwise download and install them on [Dotnet website ](https://dotnet.microsoft.com/en-us/download) and [MySQL website](https://www.mysql.com/products/workbench/)
 - Create a connection on MySQL Workbench. Add your connection password to the connection string in [appsettings.json](appsettings.json). In [Program.cs](Program.cs), remove `var password` and password tail in `connectionString`
 - Install Entity Framework tool using `dotnet tool install --global dotnet-ef`. Then run `dotnet ef database update`. Then the required database will be built on your database workbench
